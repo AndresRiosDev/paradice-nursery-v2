@@ -1,0 +1,14 @@
+return (
+    <div className="cart">
+      <h2>Tu Carrito</h2>
+      {cart.map(item => (
+        <div key={item.name}>
+          <p>{item.name} - {item.quantity}</p>
+          <button onClick={() => dispatch(updateQuantity({name: item.name, quantity: item.quantity + 1}))}>+</button>
+          <button onClick={() => dispatch(removeItem(item.name))}>Eliminar</button>
+        </div>
+      ))}
+      <button onClick={onContinue}>Continuar Comprando</button>
+    </div>
+  );
+};
